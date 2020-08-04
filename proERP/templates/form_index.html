@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends 'admin_basic_page.html' %}
+
+{% block body_block %}
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+
+  <h1>Search Your Book Here !</h1>
+    <div>
+        <form method="POST">
+            {{ insert_me.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Submit">
+        </form>
+
+        <h5>Your Search books details are as follows: </h5>
+        <table>
+         <tr>
+            <th>  Book Author  </th>
+             <th>  Book Publisher  </th>
+             <th>  Book Name  </th>
+             <th>  Book Copies </th>
+         </tr>
+    {% for i in text %}
+        <tr>
+            <td>{{i.book_author}}</td>
+            <td>{{i.book_publisher}}</td>
+            <td>{{i.book_name}}</td>
+            <td>{{i.book_copies}}</td>
+
+        </tr>
+            {% endfor %}
+</table>
+    </div>
+    </div>
+</div>
+</body>
+{% endblock %}

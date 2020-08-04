@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% extends 'admin_basic_page.html' %}
+
+{% block body_block %}
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+<h1>Please enter your ROLL NO !</h1>
+    <div>
+        <form method="POST">
+
+            {{ insert_me.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Submit">
+        </form>
+
+        <h5>Your Issued books details are as follows: </h5>
+        {% if text %}
+        <table>
+         <tr>
+            <th> Book Name </th>
+             <th>Expected Return date</th>
+             <th>FINE</th>
+             <th>Return Book</th>
+
+
+        </tr>
+        {% for i in text %}
+        <tr>
+            <td>{{i.issueBookName}}</td>
+            <td>{{i.return_date}}</td>
+            <td>{{i.fine}}</td>
+            <td> <a href="{% url 'appERP:issueDelete' pk=i.pk %}">Return Book </a> </td>
+        </tr>
+            {% endfor %}
+{% else %}
+            <h4>No Book Issued !</h4>
+            {% endif %}
+</table>
+
+
+        </div>
+
+</body>
+{% endblock %}
+
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'admin_basic_page.html' %}
+
+{% block body_block %}
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+<h4>Author Report</h4>
+<table>
+  <tr>
+      <th> ID </th>
+    <th> Author Name </th>
+    <th> Author Description </th>
+      <th> Update Author </th>
+  </tr>
+
+   {% for i in auth_list %}
+    <tr>
+    <td>{{ i.id }}</td>
+    <td>{{ i.author_name }}</td>
+    <td>{{ i.author_description }}</td>
+        <td> <a href="{% url 'appERP:update' pk=i.pk %}">Update Author</a>|<a href="{% url 'appERP:delete' pk=i.pk %}">Delete Author</a></td>
+
+  </tr>
+    {% endfor %}
+</table>
+</body>
+
+{% endblock %}

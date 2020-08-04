@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'admin_basic_page.html' %}
+
+{% block body_block %}
+
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+<h4>Student Report</h4>
+<table>
+  <tr>
+      <th> Roll No </th>
+    <th> Student Name </th>
+    <th> Student Email </th>
+      <th> Student Course </th>
+      <th>Action</th>
+  </tr>
+
+   {% for i in student_list %}
+    <tr>
+    <td>{{ i.student_rollno }}</td>
+    <td>{{ i.student_name }}</td>
+    <td>{{ i.student_email }}</td>
+        <td>{{ i.student_course }}</td>
+        <!--<td><img src="{{ i.student_profile_pic }}"></td>-->
+
+        <td> <a href="{% url 'appERP:stu_update' pk=i.pk %}">Update Student</a>|<a href="{% url 'appERP:stu_delete' pk=i.pk %}">Delete Student</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+
+{% endblock %}

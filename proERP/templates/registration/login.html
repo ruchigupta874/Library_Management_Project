@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'admin_basic_page.html' %}
+
+{% block body_block %}
+<div style="margin-top:20px;"class="container">
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col-12">
+      <div  class="jumbotron text-center hoverable p-4">
+  <div class="row">
+    <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+      <div class="view overlay">
+        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg" class="img-fluid" alt="Sample image for first version of blog listing">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <div class="col-md-7 text-md-left ml-3 mt-3">
+
+      <!-- Excerpt -->
+<h1>Login As Admin: </h1>
+
+{% if form.errors %}
+<p>That's not a match please try again</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Login">
+    <input type="hidden" name="next" value="{{next}}">
+</form>
+    </div>
+</div>
+
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+</div>
+<!-- News jumbotron -->
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+

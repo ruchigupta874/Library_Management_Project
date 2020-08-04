@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'admin_basic_page.html' %}
+
+{% block body_block %}
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+<h4>Course Report</h4>
+<table>
+  <tr>
+      <th> ID </th>
+    <th> Course Name </th>
+    <th> Course description </th>
+      <th>Action</th>
+
+  </tr>
+
+   {% for i in course_list %}
+    <tr>
+    <td>{{ i.id }}</td>
+    <td>{{ i.course_name }}</td>
+    <td>{{ i.course_description }}</td>
+        <td> <a href="{% url 'appERP:course_update' pk=i.pk %}">Update Course</a>|<a href="{% url 'appERP:course_delete' pk=i.pk %}">Delete Course</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+
+{% endblock %}

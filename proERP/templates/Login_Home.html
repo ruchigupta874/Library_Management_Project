@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% extends 'admin_basic_page.html' %}
+{% block body_block %}
+{% load auth_extras %}
+{% load static %}
+{% if request.user|has_group:"admin" %}
+	<style>
+
+header,
+.view {
+  height: 100%;
+}
+	</style>
+
+  <div class="container-fluid">
+<br/>
+<div><h3>DASHBOARD</h3></div>
+<br/>
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-9 col-md-6 col-lg-8 ">
+        <ul class="list-group">
+  <li class="list-group-item list-group-item-action list-group-item-primary">Add Author</li>
+  <br/>
+  <li class="list-group-item list-group-item-action list-group-item-light">Add Publisher</li>
+  <br/>
+  <li class="list-group-item list-group-item-action list-group-item-primary">Add New Book</li>
+  <br/>
+  <li class="list-group-item list-group-item-action list-group-item-light">Add Book category</li>
+  <br/>
+  <li class="list-group-item list-group-item-action list-group-item-primary">Add langugae</li>
+  <br/>
+  <li class="list-group-item list-group-item-action list-group-item-light">Add Genre</li>
+  <br/>
+  <li class="list-group-item list-group-item-action list-group-item-primary">Author Report</li>
+  <br/>
+  <li class="list-group-item list-group-item-action list-group-item-light">Publisher Report</li>
+  <br/>
+  <li class="list-group-item list-group-item-action list-group-item-primary">Book report</li>
+  <br/>
+  <li class="list-group-item list-group-item-action list-group-item-light">Category Report</li>
+	<br/>
+	<li class="list-group-item list-group-item-action list-group-item-primary">Langugae Report</li>
+	<br/>
+	<li class="list-group-item list-group-item-action list-group-item-light">Genre Report</li>
+
+  </ul>
+      </div>
+	   <div class="col-sm-3 col-md-6 col-lg-4 ">
+    <img src="{% static 'images/library.jpg' %}" alt="OOPS! IMAGE DID'NT SHOWED">
+         <img src="{% static 'images/library.jpg' %}" alt="OOPS! IMAGE DID'NT SHOWED">
+         <img src="{% static 'images/library.jpg' %}" alt="OOPS! IMAGE DID'NT SHOWED">
+         <img src="{% static 'images/library.jpg' %}" alt="OOPS! IMAGE DID'NT SHOWED">
+         <img src="{% static 'images/library.jpg' %}" alt="OOPS! IMAGE DID'NT SHOWED">
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+ <header>
+   <div class="view" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/background.jpg); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div style="margin-top:30px;">
+      <h3 style="text-align:center"> Welcome to student portal {{ request.user }} </h3>
+  </div>
+   </div>
+ </header>
+
+{% endif %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends 'admin_basic_page.html' %}
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">
+
+  <h1>Issue Book !</h1>
+
+        <form method="POST">
+
+            {{ insert_me.as_p }}
+            {% csrf_token %}
+
+            <input type="submit" value="Submit">
+        </form>
+                <h5>Please find your result here : </h5>
+                {{ text }}
+
+    </div>
+    </div>
+{% endblock %}

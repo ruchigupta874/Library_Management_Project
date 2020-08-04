@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'admin_basic_page.html' %}
+{% block body_block %}
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+<h4>Genre Report</h4>
+<table>
+  <tr>
+      <th> ID </th>
+    <th> Genre Name </th>
+    <th> Genre Description </th>
+      <th> Genre Language </th>
+  </tr>
+
+   {% for i in gen_list %}
+    <tr>
+    <td>{{ i.id }}</td>
+    <td>{{ i.genre_name }}</td>
+    <td>{{ i.genre_description }}</td>
+        <td> <a href="{% url 'appERP:gen_update' pk=i.pk %}">Update Genre</a>|<a href="{% url 'appERP:gen_delete' pk=i.pk %}">Delete Genre</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+
+{% endblock %}
